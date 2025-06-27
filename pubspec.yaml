@@ -1,0 +1,50 @@
+name: furniture_app
+description: "A new Flutter project."
+
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_screenutil: ^5.9.3
+  persistent_bottom_nav_bar:
+    git:
+      url: https://github.com/HamzaSamirAmmar/PersistentBottomNavBar.git
+  flutter_tabler_icons: ^1.35.0
+  photo_manager: ^3.5.1
+  permission_handler: ^11.3.1
+  image_picker: ^0.8.7+4
+  carousel_slider: ^5.0.0
+  smooth_page_indicator: ^1.2.0+3
+  
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+ 
+  firebase_core: ^3.9.0
+  otp_text_field_v2: ^1.0.3
+  
+  firebase_auth: ^5.3.4
+
+
+flutter:
+
+
+  uses-material-design: true
+
+
+  assets:
+    - assets/images/
+
+
+  
