@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
               child: Column(
                 children: [
-                  SizedBox(height: screenHeight * 0.02),
+                  SizedBox(height: screenHeight * 0.01),
                   Text(
                     "Dream Furniture",
                     style: TextStyle(
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.01),
+                  SizedBox(height: screenHeight * 0.001),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 3),
                     child: Row(
