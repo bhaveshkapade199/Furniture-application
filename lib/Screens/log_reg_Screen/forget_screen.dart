@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
-
-import 'package:furniture_app/Screens/onboarding.dart';
+import 'package:furniture_app/Screens/log_reg_Screen/onboarding.dart';
 
 import 'package:furniture_app/common/app_buttons.dart';
 
@@ -357,7 +356,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          OnboardingTabs(index: 0)));
+                                          const OnboardingTabs(index: 0)));
                             },
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,

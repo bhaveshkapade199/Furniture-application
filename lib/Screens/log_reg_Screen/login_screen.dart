@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/Screens/Carpenter_detail/carpenter_info.dart';
-import 'package:furniture_app/Screens/forget_screen.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:furniture_app/Screens/home_screen/home_screen.dart';
+
+import 'package:furniture_app/Screens/log_reg_Screen/forget_screen.dart';
 import 'package:furniture_app/common/app_buttons.dart';
 import 'package:furniture_app/common/app_textformfield.dart';
 
@@ -22,6 +24,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool passwordVisibility = true;
   bool showRedBox = false;
+
+  signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text, password: passwordController.text);
+  }
 
   @override
   void initState() {
@@ -46,12 +53,6 @@ class _LoginScreenState extends State<LoginScreen> {
           showRedBox = false;
         });
       }
-    }
-  }
-
-  void _switchToRegistrationTab() {
-    if (widget.tabController.index != 1) {
-      widget.tabController.animateTo(1);
     }
   }
 
@@ -116,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             AppTextformfield(
               keyboardType: TextInputType.text,
-              inputFormatters: [],
+              inputFormatters: const ["*"],
               textEditingController: passwordController,
               hintText: " Password",
               obscureText: passwordVisibility,
@@ -147,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ForgetPasswordScreen()));
+                          builder: (context) => const ForgetPasswordScreen()));
                 },
                 child: const Text(
                   "Forgot password?",
@@ -161,12 +162,19 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 26.5.h,
             ),
             AppButtons(
-                text: "Log in",
-                color: const Color.fromARGB(255, 0, 119, 119),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
-                }),
+              text: "Log in",
+              color: Color.fromARGB(255, 0, 119, 119),
+              onPressed: () async {
+                try {
+                  await signIn();
+                } catch (e) {
+                  print("Login Failed: $e");
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Login Failed: ${e.toString()}")),
+                  );
+                }
+              },
+            ),
             SizedBox(
               height: 20.5.h,
             ),
@@ -182,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CarpenterInfo()));
+                            builder: (context) => const CarpenterInfo()));
                   },
                   child: const Center(
                     child: Text(

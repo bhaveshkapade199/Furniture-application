@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:furniture_app/Screens/onboarding.dart';
+
+import 'package:furniture_app/wrapper.dart';
 
 class Splash extends StatefulWidget {
   final int index;
@@ -15,9 +16,9 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => OnboardingTabs(index: 0)));
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Wrapper()));
     });
   }
 

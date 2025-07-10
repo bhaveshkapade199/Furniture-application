@@ -1,6 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
-import 'package:furniture_app/Screens/onboarding.dart';
+import 'package:furniture_app/Screens/log_reg_Screen/onboarding.dart';
+
 import 'package:furniture_app/common/app_buttons.dart';
 
 class Register extends StatefulWidget {

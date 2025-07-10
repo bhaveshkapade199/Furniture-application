@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_app/Screens/onboarding.dart';
+import 'package:furniture_app/Screens/log_reg_Screen/onboarding.dart';
 
 import 'package:otp_text_field_v2/otp_text_field_v2.dart';
 import 'package:furniture_app/common/app_buttons.dart';
@@ -7,10 +7,11 @@ import 'package:furniture_app/common/app_buttons.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 class OtpScreen extends StatefulWidget {
-  OtpScreen({Key? key, this.title}) : super(key: key);
+  const OtpScreen({super.key, this.title});
   final String? title;
 
   @override
+  // ignore: library_private_types_in_public_api
   _MyHomePageState createState() => _MyHomePageState();
 }
 
@@ -191,7 +192,8 @@ class _MyHomePageState extends State<OtpScreen> {
                                     width: 56,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(7),
-                                      color: Color.fromARGB(255, 235, 255, 255),
+                                      color: const Color.fromARGB(
+                                          255, 235, 255, 255),
                                     ),
                                     child: Container(
                                       height: 26,

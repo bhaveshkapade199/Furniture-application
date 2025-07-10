@@ -27,7 +27,7 @@ class AppButtons extends StatelessWidget {
         backgroundColor: color,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
-          side: textColor == const Color.fromARGB(255, 0, 119, 119)
+          side: textColor == const Color.fromRGBO(0, 119, 119, 1)
               ? const BorderSide(color: Color.fromRGBO(0, 146, 149, 1))
               : BorderSide(color: color!),
         ),

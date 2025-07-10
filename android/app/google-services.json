@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "264575307830",
-    "project_id": "first-firebase-pro-2f4e2",
-    "storage_bucket": "first-firebase-pro-2f4e2.firebasestorage.app"
+    "project_number": "360695457574",
+    "project_id": "furniture-auth-8b478",
+    "storage_bucket": "furniture-auth-8b478.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:264575307830:android:8fe83c673c4afb5c228897",
+        "mobilesdk_app_id": "1:360695457574:android:d4228d5aa07135ee7283e7",
         "android_client_info": {
           "package_name": "com.example.furniture_app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDYi1Ud0LMzd4MinTwNoYFbvGOoWHlLsnM"
+          "current_key": "AIzaSyAl4dT0OXLTORMbWru7TykOEwYT6nmG4hE"
         }
       ],
       "services": {
