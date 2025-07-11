@@ -1,8 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
+import 'package:furniture_app/Screens/log_reg_Screen/login_screen.dart';
 import 'package:furniture_app/Screens/log_reg_Screen/onboarding.dart';
 
 import 'package:furniture_app/common/app_buttons.dart';
+import 'package:furniture_app/wrapper.dart';
+import 'package:get/get.dart';
+
+import 'package:get/get_core/src/get_main.dart';
 
 class Register extends StatefulWidget {
   final TabController? tabController;
@@ -44,6 +50,14 @@ class _RegisterState extends State<Register> {
     emailOrPhoneController1.dispose();
     passwordController.dispose();
     super.dispose();
+  }
+
+  register() async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailOrPhoneController1.text.trim(),
+        password: passwordController.text.trim());
+
+    Get.offAll(OnboardingTabs(index: 0));
   }
 
   @override
@@ -233,9 +247,37 @@ class _RegisterState extends State<Register> {
           Padding(
             padding: EdgeInsets.only(left: 25.w, right: 25.w),
             child: AppButtons(
-                text: "Register here",
-                color: const Color.fromARGB(255, 0, 119, 119),
-                onPressed: () {}),
+              text: "Register here",
+              color: const Color.fromARGB(255, 0, 119, 119),
+              onPressed: () async {
+                try {
+                  void showSuccessSnackbar(BuildContext context) {
+                    final snackBar = SnackBar(
+                      content: const Text(
+                        'Registration Successfully!',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      backgroundColor: Colors.green,
+                      duration: Duration(seconds: 3),
+                      behavior: SnackBarBehavior.floating,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      margin: EdgeInsets.all(16),
+                    );
+
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  }
+
+                  await register();
+                } catch (e) {
+                  print("Login Failed: $e");
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Login Failed: ${e.toString()}")),
+                  );
+                }
+              },
+            ),
           ),
           SizedBox(
             height: 24.h,

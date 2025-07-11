@@ -13,9 +13,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
-  persistent_bottom_nav_bar:
-    git:
-      url: https://github.com/HamzaSamirAmmar/PersistentBottomNavBar.git
+  persistent_bottom_nav_bar: ^5.0.2
+
   flutter_tabler_icons: ^1.35.0
   photo_manager: ^3.5.1
   permission_handler: ^11.3.1
@@ -27,6 +26,7 @@ dependencies:
   animated_bottom_navigation_bar: ^1.4.0
   firebase_core: ^3.15.1
   firebase_auth: ^5.6.2
+  get: ^4.7.2
   
 
 

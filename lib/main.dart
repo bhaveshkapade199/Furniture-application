@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture_app/Screens/log_reg_Screen/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:furniture_app/firebase_options.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
     return const ScreenUtilInit(
       designSize: Size(360, 800),
       minTextAdapt: true,
-      child: MaterialApp(
+      child: GetMaterialApp(
           debugShowCheckedModeBanner: false,
           home: Splash(
             index: 0,
